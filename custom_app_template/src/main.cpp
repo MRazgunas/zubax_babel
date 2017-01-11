@@ -139,10 +139,10 @@ public:
 
 static SerialConfig uartCfg =
 {
-9600, // bitrate
-0,
-0,
-0
+    9600, // bitrate
+    0,
+    0,
+    0
 };
 
 int main()

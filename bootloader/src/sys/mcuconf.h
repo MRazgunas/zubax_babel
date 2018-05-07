@@ -38,7 +38,7 @@
  * 0...3        Lowest...Highest.
  */
 
-#define STM32F37x_MCUCONF
+#define STM32F3xx_MCUCONF
 
 #define STM32_HSECLK                        (16 * 1000 * 1000)
 

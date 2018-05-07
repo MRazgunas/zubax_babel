@@ -38,7 +38,7 @@
  * 0...3        Lowest...Highest.
  */
 
-#define STM32F37x_MCUCONF
+#define STM32F3xx_MCUCONF
 
 #define STM32_HSECLK                        (16 * 1000 * 1000)
 
@@ -119,8 +119,8 @@
  */
 #define STM32_GPT_USE_TIM2                  FALSE
 #define STM32_GPT_USE_TIM3                  FALSE
-#define STM32_GPT_USE_TIM4                  FALSE
-#define STM32_GPT_USE_TIM5                  TRUE        // CAN timestamping
+#define STM32_GPT_USE_TIM4                  TRUE
+#define STM32_GPT_USE_TIM5                  FALSE        // CAN timestamping
 #define STM32_GPT_USE_TIM6                  FALSE
 #define STM32_GPT_USE_TIM7                  FALSE
 #define STM32_GPT_USE_TIM12                 FALSE

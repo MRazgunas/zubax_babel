@@ -23,7 +23,7 @@
 #endif
 
 
-#define CAN_GPT         GPTD5
+#define CAN_GPT         GPTD4
 
 
 namespace can

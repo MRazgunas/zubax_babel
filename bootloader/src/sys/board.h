@@ -23,7 +23,7 @@
 
 #pragma once
 
-#define STM32F373xC
+#define STM32F302xC
 
 /*
  * Pin definitions
@@ -70,8 +70,8 @@
 /*
  * Port E
  */
-#define GPIOE_LED_STATUS                8
-#define GPIOE_LED_TRAFFIC               9
+#define GPIOB_LED_STATUS                4
+#define GPIOB_LED_TRAFFIC               5
 
 /*
  * Port F
@@ -212,8 +212,8 @@
                                      PIN_MODE_OUTPUT(GPIOB_LED_CAN_POWER_DIS) |\
                                      PIN_MODE_OUTPUT(GPIOB_CAN_TERMINATOR_EN) |\
                                      PIN_MODE_INPUT(3) |\
-                                     PIN_MODE_INPUT(4) |\
-                                     PIN_MODE_INPUT(5) |\
+                                     PIN_MODE_OUTPUT(GPIOB_LED_STATUS) |\
+                                     PIN_MODE_OUTPUT(GPIOB_LED_TRAFFIC) |\
                                      PIN_MODE_INPUT(GPIOB_PIN_6) |\
                                      PIN_MODE_INPUT(GPIOB_PIN_7) |\
                                      PIN_MODE_ALTERNATE(GPIOB_CAN_RX) |\
@@ -531,8 +531,8 @@
                                      PIN_MODE_INPUT(5) |\
                                      PIN_MODE_INPUT(6) |\
                                      PIN_MODE_INPUT(7) |\
-                                     PIN_MODE_OUTPUT(GPIOE_LED_STATUS) |\
-                                     PIN_MODE_OUTPUT(GPIOE_LED_TRAFFIC) |\
+                                     PIN_MODE_INPUT(8) |\
+                                     PIN_MODE_INPUT(9) |\
                                      PIN_MODE_INPUT(10) |\
                                      PIN_MODE_INPUT(11) |\
                                      PIN_MODE_INPUT(12) |\
@@ -548,8 +548,8 @@
                                      PIN_OTYPE_PUSHPULL(5) |\
                                      PIN_OTYPE_PUSHPULL(6) |\
                                      PIN_OTYPE_PUSHPULL(7) |\
-                                     PIN_OTYPE_OPENDRAIN(GPIOE_LED_STATUS) |\
-                                     PIN_OTYPE_OPENDRAIN(GPIOE_LED_TRAFFIC) |\
+                                     PIN_OTYPE_PUSHPULL(8) |\
+                                     PIN_OTYPE_PUSHPULL(9) |\
                                      PIN_OTYPE_PUSHPULL(10) |\
                                      PIN_OTYPE_PUSHPULL(11) |\
                                      PIN_OTYPE_PUSHPULL(12) |\
@@ -565,8 +565,8 @@
                                      PIN_OSPEED_2M(5) |\
                                      PIN_OSPEED_2M(6) |\
                                      PIN_OSPEED_2M(7) |\
-                                     PIN_OSPEED_2M(GPIOE_LED_STATUS) |\
-                                     PIN_OSPEED_2M(GPIOE_LED_TRAFFIC) |\
+                                     PIN_OSPEED_2M(8) |\
+                                     PIN_OSPEED_2M(7) |\
                                      PIN_OSPEED_2M(10) |\
                                      PIN_OSPEED_2M(11) |\
                                      PIN_OSPEED_2M(12) |\
@@ -582,8 +582,8 @@
                                      PIN_PUPDR_PULLDOWN(5) |\
                                      PIN_PUPDR_PULLDOWN(6) |\
                                      PIN_PUPDR_PULLDOWN(7) |\
-                                     PIN_PUPDR_FLOATING(GPIOE_LED_STATUS) |\
-                                     PIN_PUPDR_FLOATING(GPIOE_LED_TRAFFIC) |\
+                                     PIN_PUPDR_FLOATING(8) |\
+                                     PIN_PUPDR_FLOATING(9) |\
                                      PIN_PUPDR_PULLDOWN(10) |\
                                      PIN_PUPDR_PULLDOWN(11) |\
                                      PIN_PUPDR_PULLDOWN(12) |\
@@ -599,8 +599,8 @@
                                      PIN_ODR_LOW(5) |\
                                      PIN_ODR_LOW(6) |\
                                      PIN_ODR_LOW(7) |\
-                                     PIN_ODR_HIGH(GPIOE_LED_STATUS) |\
-                                     PIN_ODR_HIGH(GPIOE_LED_TRAFFIC) |\
+                                     PIN_ODR_LOW(8) |\
+                                     PIN_ODR_LOW(9) |\
                                      PIN_ODR_LOW(10) |\
                                      PIN_ODR_LOW(11) |\
                                      PIN_ODR_LOW(12) |\
@@ -616,8 +616,8 @@
                                      PIN_AFIO_AF(5,  0) |\
                                      PIN_AFIO_AF(6,  0) |\
                                      PIN_AFIO_AF(7,  0) )
-#define VAL_GPIOE_AFRH              (PIN_AFIO_AF(GPIOE_LED_STATUS,  0) |\
-                                     PIN_AFIO_AF(GPIOE_LED_TRAFFIC,  0) |\
+#define VAL_GPIOE_AFRH              (PIN_AFIO_AF(8,  0) |\
+                                     PIN_AFIO_AF(7,  0) |\
                                      PIN_AFIO_AF(10, 0) |\
                                      PIN_AFIO_AF(11, 0) |\
                                      PIN_AFIO_AF(12, 0) |\

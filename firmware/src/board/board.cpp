@@ -61,31 +61,7 @@ constexpr unsigned ADCResolution = 12;
 
 void initADC()
 {
-    os::CriticalSectionLocker cs_locker;
-
-    RCC->APB2ENR  |=  RCC_APB2ENR_ADC1EN;
-    RCC->APB2RSTR |=  RCC_APB2RSTR_ADC1RST;
-    RCC->APB2RSTR &= ~RCC_APB2RSTR_ADC1RST;
-
-    // RSTCAL
-    ASSERT_ALWAYS(!(ADC1->CR2 & ADC_CR2_RSTCAL));
-    ADC1->CR2 = ADC_CR2_ADON | ADC_CR2_RSTCAL;
-    while (ADC1->CR2 & ADC_CR2_RSTCAL) { }
-
-    // CAL
-    ASSERT_ALWAYS(!(ADC1->CR2 & ADC_CR2_CAL));
-    ADC1->CR2 = ADC_CR2_ADON | ADC_CR2_CAL;
-    while (ADC1->CR2 & ADC_CR2_CAL) { }
-
-    // SQR are inited correctly by default
-
-    // Channel 0 max sample time (239.5 cycles)
-    ADC1->SMPR2 = ADC_SMPR2_SMP0_0 | ADC_SMPR2_SMP0_1 | ADC_SMPR2_SMP0_2;
-
-    // Start in continuous scan mode (free-running)
-    ADC1->CR1 = ADC_CR1_SCAN;
-    ADC1->CR2 = ADC_CR2_ADON | ADC_CR2_CONT | ADC_CR2_EXTTRIG |
-                ADC_CR2_EXTSEL_0 | ADC_CR2_EXTSEL_1 | ADC_CR2_EXTSEL_2 | ADC_CR2_SWSTART;
+    
 }
 
 }
@@ -171,12 +147,12 @@ void restart()
 
 void setStatusLED(bool state)
 {
-    palWritePad(GPIOE, GPIOE_LED_STATUS, !state);
+    palWritePad(GPIOB, GPIOB_LED_STATUS, !state);
 }
 
 void setTrafficLED(bool state)
 {
-    palWritePad(GPIOE, GPIOE_LED_TRAFFIC, !state);
+    palWritePad(GPIOB, GPIOB_LED_TRAFFIC, !state);
 }
 
 void enableCANPower(bool state)
@@ -192,9 +168,10 @@ void enableCANTerminator(bool state)
 
 float getBusVoltage()
 {
-    static constexpr float DivisionRatio = 2;
+    //static constexpr float DivisionRatio = 2;
     // The values are arranged with numerical stability in mind
-    return float(ADC1->DR) * DivisionRatio * ADCVref / float((1U << ADCResolution) - 1U);
+    //return float(ADC1->DR) * DivisionRatio * ADCVref / float((1U << ADCResolution) - 1U);
+    return 3.3f;
 }
 
 UniqueID readUniqueID()

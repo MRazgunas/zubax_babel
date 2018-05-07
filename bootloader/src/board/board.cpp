@@ -127,12 +127,12 @@ void bootApplication()
 
 void setStatusLED(bool state)
 {
-    palWritePad(GPIOE, GPIOE_LED_STATUS, !state);
+    palWritePad(GPIOB, GPIOB_LED_STATUS, !state);
 }
 
 void setTrafficLED(bool state)
 {
-    palWritePad(GPIOE, GPIOE_LED_TRAFFIC, !state);
+    palWritePad(GPIOB, GPIOB_LED_TRAFFIC, !state);
 }
 
 UniqueID readUniqueID()
